@@ -123,6 +123,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
     @Override
     protected void onStop() {
         super.onStop();
+
         insertInDataBase(userDetailList);
     }
 
@@ -142,6 +143,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityView
 
     private void insertInDataBase(ArrayList<UserDetail> userDetailList) {
         SQLiteDatabase sqLiteDatabase = productDBHelper.getWritableDatabase();
+        sqLiteDatabase.delete(UserDetailContract.UserDetailEntity.TABLE_NAME, null, null);
         for (UserDetail ud : userDetailList) {
             ContentValues contentValues = new ContentValues();
             contentValues.put(UserDetailContract.UserDetailEntity.COLUMN_USER_NAME, ud.getDisplay_name());
