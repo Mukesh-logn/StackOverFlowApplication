@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">StackOverFlow</string>
+    <string name="search_by_name">Search By Name</string>
+</resources>
